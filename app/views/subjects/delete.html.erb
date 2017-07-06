@@ -1,0 +1,37 @@
+<div>
+
+<h2>Delete Subject</h2>
+
+<p>Are you sure you want to permanetly delete this subject?</p>
+
+<table>
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Subject</th>
+        <th>Visible</th>
+        <th>Pages</th>
+        <th>Created</th>
+        <th>Updated</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+    <tr>
+        <td><%= @subject.position %></td>
+        <td><%= @subject.name %></td>
+        <td><%= @subject.visible ? "Yes" : "No" %></td>
+        <td><%= @subject.pages.size %></td>
+        <td><%= @subject.created_at %></td>
+        <td><%= @subject.updated_at %></td>
+    </tr>
+    </tbody>
+</table>
+
+<%= form_for(@subject, :method => "delete") do |f| %>
+    <%= f.submit("Delete Subject") %>
+<% end %>
+
+<%= link_to("Back", subjects_path) %>
+
+</div>

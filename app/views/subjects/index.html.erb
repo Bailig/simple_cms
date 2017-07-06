@@ -1,0 +1,39 @@
+
+<%= flash[:notice] %>
+
+<div>
+
+<h2>Subjects</h2>
+<%= link_to("Add New", new_subject_path)%>
+
+<table>
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Subject</th>
+        <th>Visible</th>
+        <th>Pages</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <% @subjects.each do |subject| %>
+    <tr>
+        <td><%= subject.position %></td>
+        <td><%= subject.name %></td>
+        <td><%= subject.visible ? "Yes" : "No" %></td>
+        <td><%= subject.pages.size %></td>
+        <td>
+            <%= link_to("Show", subject_path(subject)) %>
+            <%= link_to("Edit", edit_subject_path(subject)) %>
+            <%= link_to("Delete", delete_subject_path(subject)) %>
+        </td>
+    </tr>
+    <% end %>
+
+    </tbody>
+</table>
+
+</div>

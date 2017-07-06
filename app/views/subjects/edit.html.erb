@@ -1,0 +1,29 @@
+<div>
+
+<h2>Create Subject</h2>
+
+<%= form_for(@subject) do |f|%>
+
+    <div>
+        <label for="">Name</label>
+        <%= f.text_field(:name) %>
+    </div>
+
+    <div>
+        <label for="">Position</label>
+        <%= f.text_field(:position) %>
+    </div>
+
+    <div>
+        <label for="">Visible</label>
+        <%= f.text_field(:visible) %>
+    </div>
+
+    <div>
+        <%= f.submit("Update Subject") %>
+        <%= link_to("Back", subjects_path) %>
+    </div>
+
+<% end %>
+
+</div>
