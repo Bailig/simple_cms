@@ -1,5 +1,4 @@
-
-<%= flash[:notice] %>
+<% @page_title = "Pages" %>
 
 <div>
 
@@ -26,7 +25,7 @@
         <td><%= page.position %></td>
         <td><%= page.name %></td>
         <td><%= page.permalink %></td>
-        <td><%= page.visible ? "Yes" : "No" %></td>
+        <td><%= status_tag(page.visible) %></td>
         <td><%= page.subject.name %></td>
         <td><%= page.sections.size %></td>
         <td>

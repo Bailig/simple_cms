@@ -1,5 +1,4 @@
-
-<%= flash[:notice] %>
+<% @page_title = "Sections" %>
 
 <div>
 
@@ -23,7 +22,7 @@
     <tr>
         <td><%= section.position %></td>
         <td><%= section.name %></td>
-        <td><%= section.visible ? "Yes" : "No" %></td>
+        <td><%= status_tag(section.visible) %></td>
         <td><%= section.page.name %></td>
         <td>
             <%= link_to("Show", section_path(section)) %>

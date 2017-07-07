@@ -1,0 +1,25 @@
+<%= error_messages_for(f.object) %>
+<div>
+    <label for="">Name</label>
+    <%= f.text_field(:name) %>
+</div>
+
+<div>
+    <label for="">Subject</label>
+    <%= f.select(:subject_id, @subjects.map {|s| [s.name, s.id]}) %>
+</div>
+
+<div>
+    <label for="">Permalink</label>
+    <%= f.text_field(:permalink) %>
+</div>
+
+<div>
+    <label for="">Position</label>
+    <%= f.select(:position, 1..@page_count) %>
+</div>
+
+<div>
+    <label for="">Visible</label>
+    <%= f.check_box(:visible) %>
+</div>
