@@ -1,0 +1,42 @@
+
+<%= flash[:notice] %>
+
+<div>
+
+<h2>Sections</h2>
+<%= link_to("Add New", new_section_path)%>
+
+<table>
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Section</th>
+        <th>Visible</th>
+        <th>Page</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <% @sections.each do |section| %>
+    <tr>
+        <td><%= section.position %></td>
+        <td><%= section.name %></td>
+        <td><%= section.visible ? "Yes" : "No" %></td>
+        <td><%= section.page.name %></td>
+        <td>
+            <%= link_to("Show", section_path(section)) %>
+            <%= link_to("Edit", edit_section_path(section)) %>
+
+            <%= form_for(section, :method => "delete") do |f| %>
+                <%= f.submit("Delete") %>
+            <% end %>
+        </td>
+    </tr>
+    <% end %>
+
+    </tbody>
+</table>
+
+</div>
