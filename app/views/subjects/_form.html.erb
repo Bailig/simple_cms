@@ -1,15 +1,15 @@
 <%= error_messages_for(f.object) %>
 <div>
-    <label for="">Name</label>
+    <%= f.label(:name) %>
     <%= f.text_field(:name) %>
 </div>
 
 <div>
-    <label for="">Position</label>
+    <%= f.label(:position) %>
     <%= f.select(:position, 1..@subject_count) %>
 </div>
 
 <div>
-    <label for="">Visible</label>
+    <%= f.label(:visible) %>
     <%= f.check_box(:visible) %>
 </div>

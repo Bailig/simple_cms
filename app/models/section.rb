@@ -9,4 +9,11 @@ class Section < ApplicationRecord
     scope :sorted, lambda { order(:position) }
     scope :newest_first, lambda { order(:created_at => :desc) }
     
+    CONTENT_TYPES = ["text", "html"]
+
+    validates_presence_of :name
+    validates_length_of :name, :maximum => 255
+    validates_inclusion_of :content_type, :in => CONTENT_TYPES, :message => "must be one of #{CONTENT_TYPES[0].capitalize}, #{CONTENT_TYPES[1].upcase}"
+    validates_presence_of :content
+
 end

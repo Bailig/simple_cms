@@ -1,31 +1,31 @@
 <%= error_messages_for(f.object) %>
 <div>
-    <label for="">Name</label>
+    <%= f.label(:name) %>
     <%= f.text_field(:name) %>
 </div>
 
 <div>
-    <label for="">Page</label>
+    <%= f.label(:page_id) %>
     <%= f.select(:page_id, @pages.map {|p| [p.name, p.id]}) %>
 </div>
 
 <div>
-    <label for="">Position</label>
+    <%= f.label(:position) %>
     <%= f.select(:position, 1..@section_count) %>
 </div>
 
 <div>
-    <label for="">Visible</label>
+    <%= f.label(:visible) %>
     <%= f.check_box(:visible) %>
 </div>
 
 <div>
-    <label for="">Content Type</label>
+    <%= f.label(:content_type) %>
     <%= f.radio_button(:content_type, "text") %> Text
     <%= f.radio_button(:content_type, "html") %> HTML
 </div>
 
 <div>
-    <label for="">Content</label>
+    <%= f.label(:content) %>
     <%= f.text_area(:content, :rows => 4) %>
 </div>
