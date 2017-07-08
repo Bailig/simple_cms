@@ -1,0 +1,14 @@
+<% subject ||= [] %>
+
+<nav>
+    <% subjects.each do |subject| %>
+      <div>
+        <%= subject.name %>
+        <div>
+            <% subject.pages.visible.sorted.each do |page| %>
+              <%= link_to_unless_current(page.name, public_show_path(page.permalink)) %>
+            <% end %>
+        </div>
+      </div>
+    <% end %>
+</nav>

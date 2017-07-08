@@ -4,13 +4,13 @@
 
 <h2>Create Page</h2>
 
-<%= form_for(@page) do |f|%>
+<%= form_for(@page, page_path(@page, :subject_id => @subject.id)) do |f|%>
 
     <%= render(:partial => "form", :locals => {:f => f}) %>
 
     <div>
         <%= f.submit("Update Page") %>
-        <%= link_to("Back", pages_path) %>
+        <%= link_to("Back", pages_path(:subject_id => @subject.id)) %>
     </div>
 
 <% end %>

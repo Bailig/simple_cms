@@ -1,9 +1,10 @@
 <% @page_title = "Pages" %>
 
+<%= link_to("Back", subjects_path) %>
 <div>
 
 <h2>Pages</h2>
-<%= link_to("Add New", new_page_path)%>
+<%= link_to("Add New", new_page_path(:subject_id => @subject.id))%>
 
 <table>
     <thead>
@@ -29,8 +30,8 @@
         <td><%= page.subject.name %></td>
         <td><%= page.sections.size %></td>
         <td>
-            <%= link_to("Show", page_path(page)) %>
-            <%= link_to("Edit", edit_page_path(page)) %>
+            <%= link_to("Show", page_path(page, :subject_id => @subject.id)) %>
+            <%= link_to("Edit", edit_page_path(page, :subject_id => @subject.id)) %>
 
             <%= form_for(page, :method => "delete") do |f| %>
                 <%= f.submit("Delete") %>
