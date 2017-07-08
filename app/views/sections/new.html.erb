@@ -4,13 +4,13 @@
 
 <h2>Create Section</h2>
 
-<%= form_for(@section) do |f|%>
+<%= form_for(@section, :url => sections_path(:page_id => @page.id)) do |f|%>
 
     <%= render(:partial => "form", :locals => {:f => f}) %>
 
     <div>
         <%= f.submit("Create Section") %>
-        <%= link_to("Back", sections_path) %>
+        <%= link_to("Back", sections_path(:page_id => @page.id)) %>
     </div>
 
 <% end %>

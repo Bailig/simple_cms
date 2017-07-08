@@ -1,10 +1,10 @@
 <% @page_title = "Sections" %>
 
-<%= link_to("Back", admin_path) %>
+<%= link_to("Back", pages_path(:subject_id => @page.subject_id)) %>
 <div>
 
 <h2>Sections</h2>
-<%= link_to("Add New", new_section_path)%>
+<%= link_to("Add New", new_section_path(:page_id => @page.id))%>
 
 <table>
     <thead>
@@ -26,10 +26,10 @@
         <td><%= status_tag(section.visible) %></td>
         <td><%= section.page.name %></td>
         <td>
-            <%= link_to("Show", section_path(section)) %>
-            <%= link_to("Edit", edit_section_path(section)) %>
+            <%= link_to("Show", section_path(section, :page_id => @page.id)) %>
+            <%= link_to("Edit", edit_section_path(section, :page_id => @page.id)) %>
 
-            <%= form_for(section, :method => "delete") do |f| %>
+            <%= form_for(section, :url => section_path(section, :page_id => @page.id), :method => "delete") do |f| %>
                 <%= f.submit("Delete") %>
             <% end %>
         </td>
