@@ -4,9 +4,6 @@ class AccessController < ApplicationController
 
   before_action :confirm_logged_in, :except => [:login, :attempt_login, :logout]
 
-  def menu
-  end
-
   def login
   end
 
@@ -31,7 +28,7 @@ class AccessController < ApplicationController
   def logout
     session[:user_id] = nil
     flash[:notice] = "Logged out"
-    redirect_to(access_login_path)
+    redirect_to(root_path)
   end
   
 end

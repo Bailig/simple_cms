@@ -1,1 +1,5 @@
-console.log("H! JavaScript is loaded. ")
+
+
+$( document ).on('turbolinks:load', function() {
+    $('[data-toggle="tooltip"]').tooltip()
+})

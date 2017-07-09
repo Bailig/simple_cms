@@ -9,7 +9,12 @@
     <%= javascript_include_tag("application") %>
 </head>
 <body>
-    <%= render(:partial => "layouts/navigation", :locals => { :subjects => @subjects }) %>
-    <%= yield %>
+
+    <%= render(:partial => "layouts/navigation", :locals => { :subjects => @subjects, :admin_area => false }) %>
+
+    <main class="container">
+        <%= yield %>
+    </main>
+    
 </body>
 </html>

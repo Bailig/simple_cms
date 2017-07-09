@@ -1,31 +1,50 @@
 <%= error_messages_for(f.object) %>
-<div>
-    <%= f.label(:name) %>
-    <%= f.text_field(:name) %>
+
+ <div class="form-group">
+    <%= f.label(:name, :class => "control-label col-md-2") %>
+    <div class="col-md-10">
+        <%= f.text_field(:name, :class => "form-control") %>
+    </div>
 </div>
 
-<div>
-    <%= f.label(:page_id) %>
-    <%= f.select(:page_id, @pages.map {|p| [p.name, p.id]}) %>
+ <div class="form-group">
+    <%= f.label(:page_id, :class => "control-label col-md-2") %>
+    <div class="col-md-10">
+        <%= f.select(:page_id, @pages.map {|p| [p.name, p.id]}, {}, :class => "form-control") %>
+    </div>
 </div>
 
-<div>
-    <%= f.label(:position) %>
-    <%= f.select(:position, 1..@section_count) %>
+ <div class="form-group">
+    <%= f.label(:position, :class => "control-label col-md-2") %>
+    <div class="col-md-10">
+        <%= f.select(:position, 1..@section_count, {}, :class => "form-control") %>
+    </div>
 </div>
 
-<div>
-    <%= f.label(:visible) %>
-    <%= f.check_box(:visible) %>
+ <div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <div class="checkbox">
+            <label>
+            <%= f.check_box(:visible) %> Visible
+            </label>
+        </div>
+    </div>
 </div>
 
-<div>
-    <%= f.label(:content_type) %>
-    <%= f.radio_button(:content_type, "text") %> Text
-    <%= f.radio_button(:content_type, "html") %> HTML
+ <div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <label class="radio-inline">
+            <%= f.radio_button(:content_type, "text") %> Text
+        </label>
+        <label class="radio-inline">
+            <%= f.radio_button(:content_type, "html") %> HTML
+        </label>
+    </div>
 </div>
 
-<div>
-    <%= f.label(:content) %>
-    <%= f.text_area(:content, :rows => 4) %>
+ <div class="form-group">
+    <%= f.label(:content, :class => "control-label col-md-2") %>
+    <div class="col-md-10">
+        <%= f.text_area(:content, :rows => 6, :class => "form-control") %>
+    </div>
 </div>

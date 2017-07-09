@@ -5,11 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Simple CMS: <%= @page_title || "Admin Area" %></title>
-    <%= stylesheet_link_tag("admin", :media => "all") %>
+    <%= stylesheet_link_tag("application", :media => "all") %>
     <%= javascript_include_tag("application") %>
 </head>
 <body>
-    <%= flash[:notice] %>
-    <%= yield %>
+    <%= render(:partial => "layouts/navigation", :locals => { :subjects => @subjects, :admin_area => true }) %>
+    
+    <main class="container">
+        <%= breadcrumb_for(@subject, @page, @page_title) %>
+        <% if flash[:notice] %>
+            <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
+        <% end %>
+        <%= yield %>
+    </main>
 </body>
 </html>

@@ -1,18 +1,20 @@
-<% @page_title = "Create a Subject" %>
+<% @page_title = "Create Subject" %>
 
-<div>
 
-<h2>Create Subject</h2>
+<div class="row">
+<div class="col-md-11">
 
-<%= form_for(@subject) do |f|%>
+    <h2><%= @page_title %></h2>
+    <%= form_for(@subject, :html => {:class => "form-horizontal"}) do |f|%>
 
-    <%= render(:partial => "form", :locals => {:f => f}) %>
+        <%= render(:partial => "form", :locals => {:f => f})%>
 
-    <div>
-        <%= f.submit("Create Subject") %>
-        <%= link_to("Back", subjects_path) %>
-    </div>
+        <div class="col-md-10 col-md-offset-2">
+            <%= f.submit("Save", :class => "btn btn-primary") %>
+            <%= link_to("Cancel", subjects_path, :class => "btn btn-default") %>
+        </div>
 
-<% end %>
+    <% end %>
 
+</div>
 </div>

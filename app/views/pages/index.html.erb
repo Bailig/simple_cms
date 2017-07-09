@@ -1,12 +1,11 @@
 <% @page_title = "Pages" %>
 
-<%= link_to("Back", subjects_path) %>
-<div>
-
 <h2>Pages</h2>
-<%= link_to("Add New", new_page_path(:subject_id => @subject.id))%>
+<a href=<%= new_page_path(:subject_id => @subject.id) %> class="btn btn-primary" role="button">Add New</a>
 
-<table>
+<div class="row">
+
+<table class="table table-hover">
     <thead>
     <tr>
         <th>#</th>
@@ -24,19 +23,18 @@
     <% @pages.each do |page| %>
     <tr>
         <td><%= page.position %></td>
-        <td><%= page.name %></td>
+        <td>
+            <%= link_to(page.name, page_path(page, :subject_id => @subject.id), :data => {:toggle => "tooltip", :placement => "top"}, :title => "Detail") %>
+        </td>
         <td><%= page.permalink %></td>
         <td><%= status_tag(page.visible) %></td>
         <td><%= page.subject.name %></td>
-        <td><%= page.sections.size %></td>
         <td>
-            <%= link_to("View Sections", sections_path(:page_id => page.id)) %>
-            <%= link_to("Show", page_path(page, :subject_id => @subject.id)) %>
-            <%= link_to("Edit", edit_page_path(page, :subject_id => @subject.id)) %>
-
-            <%= form_for(page, :url => page_path(page, :subject_id => @subject.id), :method => "delete") do |f| %>
-                <%= f.submit("Delete") %>
-            <% end %>
+            <%= link_to(pluralize(page.sections.size, 'Section'), sections_path(:page_id => page.id), :data => {:toggle => "tooltip", :placement => "top"}, :title => "Sections") %>
+        </td>
+        <td>
+            <%= edit_button_for(edit_page_path(page, :subject_id => @subject.id)) %>
+            <%= delete_button_for(page, page_path(page, :subject_id => @subject.id)) %>
         </td>
     </tr>
     <% end %>
