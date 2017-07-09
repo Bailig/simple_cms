@@ -1,0 +1,6 @@
+<ol class="breadcrumb">
+  <li><%= link_to("Subjects", subjects_path) %></li>
+  <li><%= link_to(section.page.subject.name, pages_path(:subject_id => section.page.subject_id)) %></li>
+  <li><%= link_to(section.page.name, sections_path(:page_id => section.page_id)) %></li>
+  <li class="active"><%= section.name || page_title %></li>
+</ol>

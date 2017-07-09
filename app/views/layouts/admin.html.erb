@@ -12,7 +12,7 @@
     <%= render(:partial => "layouts/navigation", :locals => { :subjects => @subjects, :admin_area => true }) %>
     
     <main class="container">
-        <%= breadcrumb_for(@subject, @page, @page_title) %>
+        <%= breadcrumb_for(@subject, @page, @section, @page_title) %>
         <% if flash[:notice] %>
             <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
         <% end %>

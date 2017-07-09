@@ -19,12 +19,14 @@ module ApplicationHelper
         render(:partial => "application/edit_button", :locals => {:path => path})
     end
 
-    def delete_button_for(object, path)
+    def delete_button_for(object, path=nil)
         render(:partial => "application/delete_button", :locals => {:object => object, :path => path})
     end
     
-    def breadcrumb_for(subject, page, page_title)
-        if page 
+    def breadcrumb_for(subject, page, section, page_title)
+        if section
+            render(:partial => "application/breadcrumb_for_sections_base", :locals => {:section => section, :page_title => page_title})
+        elsif page 
             render(:partial => "application/breadcrumb_for_pages_base", :locals => {:page => page, :page_title => page_title})
         elsif subject
             render(:partial => "application/breadcrumb_for_subjects_base", :locals => {:subject => subject,  :page_title => page_title})

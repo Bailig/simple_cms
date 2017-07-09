@@ -1,12 +1,12 @@
 <% @page_title = "Admin Users" %>
 
 
-<div>
+<h2><%= @page_title %></h2>
+<a href=<%= new_admin_user_path %> class="btn btn-primary" role="button">Add New</a>
 
-<h2>Admin Users</h2>
-<%= link_to("Add New", new_admin_user_path)%>
+<div class="row">
 
-<table>
+<table class="table table-hover">
     <thead>
     <tr>
         <th>Username</th>
@@ -24,10 +24,8 @@
         <td><%= admin_user.name %></td>
         <td><%= mail_to(admin_user.email) %></td>
         <td>
-            <%= link_to("Edit", edit_admin_user_path(admin_user)) %>
-            <%= form_for(admin_user, :method => "delete") do |f| %>
-                <%= f.submit("Delete") %>
-            <% end %>
+            <%= edit_button_for(edit_admin_user_path(admin_user)) %>
+            <%= delete_button_for(admin_user) %>
         </td>
     </tr>
     <% end %>

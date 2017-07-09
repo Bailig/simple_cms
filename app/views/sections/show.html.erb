@@ -1,37 +1,38 @@
-<% @page_title = "Show a Section" %>
+<% @page_title = @section.name %>
 
-<div>
+<div class="row">
+<div class="col-md-8">
 
-<h2>Section</h2>
+<h2><%= @page_title %></h2>
 
-<table>
-    <thead>
-    <tr>
-        <th>#</th>
-        <th>Section</th>
-        <th>Visible</th>
-        <th>Page</th>
-        <th>Content Type</th>
-        <th>Content</th>
-        <th>Created</th>
-        <th>Updated</th>
-    </tr>
-    </thead>
+<dl class="dl-horizontal">
+
+    <dt>#</dt>
+    <dd><%= @section.position %></dd>
+
+    <dt>Name</dt>
+    <dd><%= @section.name %></dd>
+
+    <dt>Visible</dt>
+    <dd><%= @section.visible ? "Yes" : "No" %></dd>
+
+    <dt>Page</dt>
+    <dd><%= @section.page.name %></dd>
+
+    <dt>Created</dt>
+    <dd><%= @section.created_at.to_s(:long) %></dd>
+
+    <dt>Updated</dt>
+    <dd><%= @section.updated_at.to_s(:long) %></dd>
+
+
+    <dt>Content Type</dt>
+    <dd><%= @section.content_type %></dd>
+
+    <dt>Content</dt>
+    <dd><%= @section.content %></dd>
     
-    <tbody>
-    <tr>
-        <td><%= @section.position %></td>
-        <td><%= @section.name %></td>
-        <td><%= @section.visible ? "Yes" : "No" %></td>
-        <td><%= @section.page.name %></td>
-        <td><%= @section.content_type %></td>
-        <td><%= @section.content %></td>
-        <td><%= @section.created_at %></td>
-        <td><%= @section.updated_at %></td>
-    </tr>
-    </tbody>
-</table>
+</dl>
 
-<%= link_to("Back", sections_path(:page_id => @page.id)) %>
-
+</div>
 </div>

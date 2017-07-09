@@ -12,7 +12,7 @@ class AdminUsersController < ApplicationController
   end
 
   def create
-    @admin_user = AdminUser.find(admin_user_params)
+    @admin_user = AdminUser.new(admin_user_params)
     if @admin_user.save
       flash[:notice] = "Admin user created successfully."
       redirect_to(admin_users_path)

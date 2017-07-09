@@ -1,33 +1,31 @@
-<% @page_title = "Show a Subject" %>
+<% @page_title = @subject.name %>
 
-<div>
+<div class="row">
+<div class="col-md-8">
 
-<h2>Subject</h2>
+<h2><%= @page_title %></h2>
 
-<table>
-    <thead>
-    <tr>
-        <th>#</th>
-        <th>Subject</th>
-        <th>Visible</th>
-        <th>Pages</th>
-        <th>Created</th>
-        <th>Updated</th>
-    </tr>
-    </thead>
-    
-    <tbody>
-    <tr>
-        <td><%= @subject.position %></td>
-        <td><%= @subject.name %></td>
-        <td><%= @subject.visible ? "Yes" : "No" %></td>
-        <td><%= @subject.pages.size %></td>
-        <td><%= @subject.created_at %></td>
-        <td><%= @subject.updated_at %></td>
-    </tr>
-    </tbody>
-</table>
+<dl class="dl-horizontal">
 
-<%= link_to("Back", subjects_path) %>
+    <dt>#</dt>
+    <dd><%= @subject.position %></dd>
 
+    <dt>Name</dt>
+    <dd><%= @subject.name %></dd>
+
+    <dt>Visible</dt>
+    <dd><%= @subject.visible ? "Yes" : "No" %></dd>
+
+    <dt>Pages</dt>
+    <dd><%= pluralize(@subject.pages.size, 'Page') %></dd>
+
+    <dt>Created</dt>
+    <dd><%= @subject.created_at.to_s(:long) %></dd>
+
+    <dt>Updated</dt>
+    <dd><%= @subject.updated_at.to_s(:long) %></dd>
+
+</dl>
+
+</div>
 </div>

@@ -1,37 +1,37 @@
-<% @page_title = "Show a Page" %>
+<% @page_title = @page.name %>
 
-<div>
+<div class="row">
+<div class="col-md-8">
 
-<h2>Page</h2>
+<h2><%= @page_title %></h2>
 
-<table>
-    <thead>
-    <tr>
-        <th>#</th>
-        <th>Page</th>
-        <th>Permalink</th>
-        <th>Visible</th>
-        <th>Subject</th>
-        <th>Sections</th>
-        <th>Created</th>
-        <th>Updated</th>
-    </tr>
-    </thead>
-    
-    <tbody>
-    <tr>
-        <td><%= @page.position %></td>
-        <td><%= @page.name %></td>
-        <td><%= @page.permalink %></td>
-        <td><%= @page.visible ? "Yes" : "No" %></td>
-        <td><%= @page.subject.name %></td>
-        <td><%= @page.sections.size %></td>
-        <td><%= @page.created_at %></td>
-        <td><%= @page.updated_at %></td>
-    </tr>
-    </tbody>
-</table>
+<dl class="dl-horizontal">
 
-<%= link_to("Back", pages_path(:subject_id => @subject.id)) %>
+    <dt>#</dt>
+    <dd><%= @page.position %></dd>
 
+    <dt>Name</dt>
+    <dd><%= @page.name %></dd>
+
+    <dt>Permalink</dt>
+    <dd><%= @page.permalink %></dd>
+
+    <dt>Visible</dt>
+    <dd><%= @page.visible ? "Yes" : "No" %></dd>
+
+    <dt>Subject</dt>
+    <dd><%= @page.subject.name %></dd>
+
+    <dt>Pages</dt>
+    <dd><%= pluralize(@page.sections.size, 'Section') %></dd>
+
+    <dt>Created</dt>
+    <dd><%= @page.created_at.to_s(:long) %></dd>
+
+    <dt>Updated</dt>
+    <dd><%= @page.updated_at.to_s(:long) %></dd>
+
+</dl>
+
+</div>
 </div>
